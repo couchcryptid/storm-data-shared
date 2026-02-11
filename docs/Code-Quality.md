@@ -50,6 +50,7 @@ Vulnerability scanning via `make vuln` runs `govulncheck` against all packages. 
 Analyzed via CI on every push and pull request: [SonarCloud dashboard](https://sonarcloud.io/summary/overall?id=couchcryptid_storm-data-shared)
 
 SonarCloud configuration (`sonar-project.properties`):
+
 - Reports Go coverage via `coverage.out`
 - Allows idiomatic Go test naming (`TestX_Y_Z`) on test files
 
