@@ -30,7 +30,7 @@ retry/
 
 Provides `EnvOrDefault` for reading environment variables with fallbacks, `ParseBrokers` for splitting comma-separated Kafka broker lists, and typed parsers for shared settings (`BATCH_SIZE`, `BATCH_FLUSH_INTERVAL`, `SHUTDOWN_TIMEOUT`).
 
-Each service's `internal/config` package imports these helpers and combines them with service-specific settings. For example, the ETL's `config.Load()` calls `sharedcfg.ParseShutdownTimeout()` for the shared timeout parser, then adds Mapbox-specific configuration on top.
+Each service's `internal/config` package imports these helpers and combines them with service-specific settings. For example, the ETL's `config.Load()` calls `sharedcfg.ParseShutdownTimeout()` for the shared timeout parser, then adds ETL-specific configuration (Kafka topics, HTTP address) on top.
 
 ### `observability`
 
@@ -95,7 +95,7 @@ The `ReadinessChecker` interface is defined in the shared module and implemented
 
 Each service defines its own Prometheus metrics in `internal/observability/metrics.go`. The shared module does not provide a common metrics struct.
 
-**Why**: Metric definitions are service-specific (HTTP metrics, Kafka metrics, database metrics, geocoding metrics). A shared metrics struct would either be too generic to be useful or would need to know about every service's concerns.
+**Why**: Metric definitions are service-specific (HTTP metrics, Kafka metrics, database metrics). A shared metrics struct would either be too generic to be useful or would need to know about every service's concerns.
 
 ## Related
 
