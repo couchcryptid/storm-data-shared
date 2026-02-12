@@ -24,6 +24,26 @@ Services wrap shared functions in thin adapters that accept their own config typ
 
 Pure library code. No code generation, no build steps, no Makefiles beyond convenience targets. `go test ./...` is the entire test suite.
 
+## What the Codebase Reveals
+
+The shared library's code reveals deliberate constraints that keep it useful without becoming a liability.
+
+### Primitive arguments enforce decoupling
+
+Every public function takes primitive types: `NewLogger("info", "json")`, not `NewLogger(cfg)`. This means services can restructure their config types, rename fields, or change validation logic without touching the shared library. The shared library has no opinion about how services organize their configuration -- it only cares about the values.
+
+### The library never calls back into services
+
+No init functions, no package-level side effects, no required initialization order. Services call into the shared library; the library never calls back. This means adding a new service to the pipeline requires zero changes to the shared library -- just import the packages you need.
+
+### Interface definitions are the contract, not implementations
+
+`ReadinessChecker` is defined here but implemented in each service. Go's structural typing means services implement the interface without importing it. This means the shared library can evolve its interface (carefully) and services only need to update if their method signatures change -- not because an import path moved.
+
+### The linter config is intentionally smaller
+
+12 linters instead of the 14-15 used by services. `bodyclose`, `noctx`, and `sqlclosecheck` are omitted because the library makes no HTTP requests and has no database operations. This isn't laziness -- it's scoping the analysis to what's relevant. Adding these linters would produce zero findings and add noise to the configuration.
+
 ## Static Analysis
 
 ### golangci-lint
