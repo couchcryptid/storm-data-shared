@@ -6,24 +6,6 @@
 
 This is a library, not a service -- it has no `main` package, no Docker image, and no runtime deployment.
 
-## Package Layout
-
-```
-config/
-  env.go              Environment variable helpers and shared parsers
-  env_test.go         Tests for all parsers and edge cases
-
-observability/
-  logging.go          Structured slog logger factory
-  logging_test.go     Tests for level parsing and logger creation
-  health.go           Liveness, readiness handlers and ReadinessChecker interface
-  health_test.go      Tests for health endpoint responses
-
-retry/
-  backoff.go          Exponential backoff and context-aware sleep
-  backoff_test.go     Tests for backoff calculation and cancellation
-```
-
 ## Package Details
 
 ### `config`

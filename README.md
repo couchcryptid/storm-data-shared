@@ -54,7 +54,7 @@ import (
 )
 
 // Configuration
-brokers := config.ParseBrokers(config.EnvOrDefault("KAFKA_BROKERS", "localhost:9092"))
+brokers := config.ParseBrokers(config.EnvOrDefault("KAFKA_BROKERS", "kafka:9092"))
 
 // Logging
 logger := observability.NewLogger("info", "json")
@@ -82,17 +82,9 @@ make clean        # Remove coverage artifacts
 ## Project Structure
 
 ```
-config/
-  env.go              Environment variable helpers and parsers
-  env_test.go         Tests for all parsers and edge cases
-observability/
-  logging.go          Structured slog logger factory
-  logging_test.go     Tests for level parsing and logger creation
-  health.go           Liveness, readiness handlers and ReadinessChecker interface
-  health_test.go      Tests for health endpoint responses
-retry/
-  backoff.go          Exponential backoff and context-aware sleep
-  backoff_test.go     Tests for backoff calculation and cancellation
+config/               Environment variable helpers and shared parsers
+observability/        Structured logging, health endpoints, and ReadinessChecker interface
+retry/                Exponential backoff and context-aware sleep
 ```
 
 ## Documentation
