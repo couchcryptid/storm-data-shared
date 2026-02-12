@@ -72,3 +72,11 @@ func Load() (*Config, error) {
 For the full list of environment variables per service, see:
 - [ETL Configuration](https://github.com/couchcryptid/storm-data-etl/wiki/Configuration)
 - [API Configuration](https://github.com/couchcryptid/storm-data-api/wiki/Configuration)
+
+## Related
+
+- [System Configuration](https://github.com/couchcryptid/storm-data-system/wiki/Configuration) -- environment variables across all services
+- [ETL Configuration](https://github.com/couchcryptid/storm-data-etl/wiki/Configuration) -- ETL-specific settings built on shared parsers
+- [API Configuration](https://github.com/couchcryptid/storm-data-api/wiki/Configuration) -- API-specific settings built on shared parsers
+- [[Architecture]] -- package design and how services compose shared code
+- [[Development]] -- testing and project conventions

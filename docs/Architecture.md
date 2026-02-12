@@ -96,3 +96,12 @@ The `ReadinessChecker` interface is defined in the shared module and implemented
 Each service defines its own Prometheus metrics in `internal/observability/metrics.go`. The shared module does not provide a common metrics struct.
 
 **Why**: Metric definitions are service-specific (HTTP metrics, Kafka metrics, database metrics, geocoding metrics). A shared metrics struct would either be too generic to be useful or would need to know about every service's concerns.
+
+## Related
+
+- [System Architecture](https://github.com/couchcryptid/storm-data-system/wiki/Architecture) -- full pipeline design and improvement roadmap
+- [ETL Architecture](https://github.com/couchcryptid/storm-data-etl/wiki/Architecture) -- hexagonal design that imports shared config, observability, and retry
+- [API Architecture](https://github.com/couchcryptid/storm-data-api/wiki/Architecture) -- layered design that imports shared config and observability
+- [System Observability](https://github.com/couchcryptid/storm-data-system/wiki/Observability) -- health checks, metrics, and logging across all services
+- [[Configuration]] -- shared environment variable parsers
+- [[Development]] -- testing, linting, and versioning

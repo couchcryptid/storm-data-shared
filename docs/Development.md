@@ -125,3 +125,12 @@ go mod tidy
 |---------|------------|
 | [storm-data-etl](https://github.com/couchcryptid/storm-data-etl) | `config`, `observability`, `retry` |
 | [storm-data-api](https://github.com/couchcryptid/storm-data-api) | `config`, `observability` |
+
+## Related
+
+- [System Development](https://github.com/couchcryptid/storm-data-system/wiki/Development) -- multi-repo workflow and cross-service conventions
+- [ETL Development](https://github.com/couchcryptid/storm-data-etl/wiki/Development) -- consuming service development and testing
+- [API Development](https://github.com/couchcryptid/storm-data-api/wiki/Development) -- consuming service development and testing
+- [[Architecture]] -- package layout and design decisions
+- [[Configuration]] -- shared environment variable parsers
+- [[Code Quality]] -- linting, static analysis, and quality gates
