@@ -4,7 +4,6 @@
 - [[Architecture]]
 - [[Configuration]]
 - [[Development]]
-- [[Code Quality]]
 
 ---
 

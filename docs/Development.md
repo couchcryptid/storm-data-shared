@@ -133,4 +133,3 @@ go mod tidy
 - [API Development](https://github.com/couchcryptid/storm-data-api/wiki/Development) -- consuming service development and testing
 - [[Architecture]] -- package layout and design decisions
 - [[Configuration]] -- shared environment variable parsers
-- [[Code Quality]] -- linting, static analysis, and quality gates

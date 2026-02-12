@@ -102,4 +102,3 @@ See the [project wiki](../../wiki) for detailed documentation:
 - [Architecture](../../wiki/Architecture) -- Package design, interface contracts, and design decisions
 - [Configuration](../../wiki/Configuration) -- Shared environment variables and parsing rules
 - [Development](../../wiki/Development) -- Build, test, lint, CI, and conventions
-- [Code Quality](../../wiki/Code-Quality) -- Linting, static analysis, and quality gates

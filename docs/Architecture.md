@@ -102,6 +102,5 @@ Each service defines its own Prometheus metrics in `internal/observability/metri
 - [System Architecture](https://github.com/couchcryptid/storm-data-system/wiki/Architecture) -- full pipeline design and improvement roadmap
 - [ETL Architecture](https://github.com/couchcryptid/storm-data-etl/wiki/Architecture) -- hexagonal design that imports shared config, observability, and retry
 - [API Architecture](https://github.com/couchcryptid/storm-data-api/wiki/Architecture) -- layered design that imports shared config and observability
-- [System Observability](https://github.com/couchcryptid/storm-data-system/wiki/Observability) -- health checks, metrics, and logging across all services
 - [[Configuration]] -- shared environment variable parsers
 - [[Development]] -- testing, linting, and versioning

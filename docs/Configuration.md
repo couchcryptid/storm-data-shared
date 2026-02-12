@@ -75,7 +75,6 @@ For the full list of environment variables per service, see:
 
 ## Related
 
-- [System Configuration](https://github.com/couchcryptid/storm-data-system/wiki/Configuration) -- environment variables across all services
 - [ETL Configuration](https://github.com/couchcryptid/storm-data-etl/wiki/Configuration) -- ETL-specific settings built on shared parsers
 - [API Configuration](https://github.com/couchcryptid/storm-data-api/wiki/Configuration) -- API-specific settings built on shared parsers
 - [[Architecture]] -- package design and how services compose shared code
