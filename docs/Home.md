@@ -13,8 +13,6 @@ Shared Go library for the storm data pipeline. Extracts common patterns from the
 ## Pages
 
 - [[Architecture]] -- Package design, interface contracts, and design decisions
-- [[Configuration]] -- Shared environment variables and parsing rules
-- [[Development]] -- Build, test, lint, CI, and conventions
 
 ## Related Repositories
 
