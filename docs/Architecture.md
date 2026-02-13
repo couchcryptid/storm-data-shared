@@ -51,7 +51,7 @@ Go's structural typing means services implement this interface without importing
 
 `NextBackoff(current, max)` implements capped exponential backoff by doubling the current duration up to a maximum. `SleepWithContext(ctx, d)` sleeps for the specified duration but returns early (with `false`) if the context is cancelled.
 
-Used by the ETL pipeline's extract-transform-load loop to back off on Kafka broker failures.
+Used by the ETL pipeline's extract-transform-load loop and the API's batch Kafka consumer to back off on broker failures.
 
 ## Design Decisions
 
@@ -83,4 +83,4 @@ Each service defines its own Prometheus metrics in `internal/observability/metri
 
 - [System Architecture](https://github.com/couchcryptid/storm-data-system/wiki/Architecture) -- full pipeline design and improvement roadmap
 - [ETL Architecture](https://github.com/couchcryptid/storm-data-etl/wiki/Architecture) -- hexagonal design that imports shared config, observability, and retry
-- [API Architecture](https://github.com/couchcryptid/storm-data-api/wiki/Architecture) -- layered design that imports shared config and observability
+- [API Architecture](https://github.com/couchcryptid/storm-data-api/wiki/Architecture) -- layered design that imports shared config, observability, and retry
