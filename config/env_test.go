@@ -19,15 +19,19 @@ func TestEnvOrDefault_Fallback(t *testing.T) {
 }
 
 func TestParseBrokers(t *testing.T) {
+	const (
+		brokerA = "a:9092"
+		brokerB = "b:9092"
+	)
 	tests := []struct {
 		name  string
 		input string
 		want  []string
 	}{
 		{"single", "localhost:9092", []string{"localhost:9092"}},
-		{"multiple", "a:9092,b:9092", []string{"a:9092", "b:9092"}},
-		{"whitespace", " a:9092 , b:9092 ", []string{"a:9092", "b:9092"}},
-		{"empty parts", "a:9092,,b:9092", []string{"a:9092", "b:9092"}},
+		{"multiple", brokerA + "," + brokerB, []string{brokerA, brokerB}},
+		{"whitespace", " " + brokerA + " , " + brokerB + " ", []string{brokerA, brokerB}},
+		{"empty parts", brokerA + ",," + brokerB, []string{brokerA, brokerB}},
 	}
 
 	for _, tt := range tests {

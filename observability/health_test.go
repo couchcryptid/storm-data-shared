@@ -9,6 +9,8 @@ import (
 	"testing"
 )
 
+const statusFmt = "status = %d, want %d"
+
 type alwaysReady struct{}
 
 func (alwaysReady) CheckReadiness(_ context.Context) error { return nil }
@@ -24,7 +26,7 @@ func TestLivenessHandler(t *testing.T) {
 	LivenessHandler().ServeHTTP(rec, req)
 
 	if rec.Code != http.StatusOK {
-		t.Errorf("status = %d, want %d", rec.Code, http.StatusOK)
+		t.Errorf(statusFmt, rec.Code, http.StatusOK)
 	}
 	var body map[string]string
 	if err := json.NewDecoder(rec.Body).Decode(&body); err != nil {
@@ -42,7 +44,7 @@ func TestReadinessHandler_Ready(t *testing.T) {
 	ReadinessHandler(alwaysReady{}).ServeHTTP(rec, req)
 
 	if rec.Code != http.StatusOK {
-		t.Errorf("status = %d, want %d", rec.Code, http.StatusOK)
+		t.Errorf(statusFmt, rec.Code, http.StatusOK)
 	}
 }
 
@@ -53,7 +55,7 @@ func TestReadinessHandler_NotReady(t *testing.T) {
 	ReadinessHandler(neverReady{}).ServeHTTP(rec, req)
 
 	if rec.Code != http.StatusServiceUnavailable {
-		t.Errorf("status = %d, want %d", rec.Code, http.StatusServiceUnavailable)
+		t.Errorf(statusFmt, rec.Code, http.StatusServiceUnavailable)
 	}
 	var body map[string]string
 	if err := json.NewDecoder(rec.Body).Decode(&body); err != nil {
